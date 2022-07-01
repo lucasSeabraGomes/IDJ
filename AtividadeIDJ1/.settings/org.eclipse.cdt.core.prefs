@@ -1,0 +1,17 @@
+doxygen/doxygen_new_line_after_brief=true
+doxygen/doxygen_use_brief_tag=false
+doxygen/doxygen_use_javadoc_tags=true
+doxygen/doxygen_use_pre_tag=false
+doxygen/doxygen_use_structural_commands=false
+eclipse.preferences.version=1
+environment/project/cdt.managedbuild.config.gnu.mingw.exe.debug.1336434983/MINGW_HOME/delimiter=;
+environment/project/cdt.managedbuild.config.gnu.mingw.exe.debug.1336434983/MINGW_HOME/operation=replace
+environment/project/cdt.managedbuild.config.gnu.mingw.exe.debug.1336434983/MINGW_HOME/value=C\:\\TDM-GCC-32
+environment/project/cdt.managedbuild.config.gnu.mingw.exe.debug.1336434983/PATH/delimiter=;
+environment/project/cdt.managedbuild.config.gnu.mingw.exe.debug.1336434983/PATH/operation=replace
+environment/project/cdt.managedbuild.config.gnu.mingw.exe.debug.1336434983/PATH/value=C\:\\Users\\newlo\\eclipse-workspace\\Atividade1IDJ\\Debug;C\:\\SDL2-2.0.22\\bin;${MINGW_HOME}\\bin;${MSYS_HOME}\\bin;${MSYS_HOME}\\usr\\bin;C\:/Users/newlo/.p2/pool/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_18.0.1.v20220515-1614/jre/bin/server;C\:/Users/newlo/.p2/pool/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_18.0.1.v20220515-1614/jre/bin;C\:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C\:\\Windows\\system32;C\:\\Windows;C\:\\Windows\\System32\\Wbem;C\:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C\:\\Windows\\System32\\OpenSSH\\;C\:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C\:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C\:\\Strawberry\\c\\bin;C\:\\Strawberry\\perl\\site\\bin;C\:\\Strawberry\\perl\\bin;C\:\\Users\\newlo\\AppData\\Local\\bin\\NASM;C\:\\Program Files (x86)\\OpenSSL\\bin;C\:\\Program Files\\Git\\cmd;C\:\\WINDOWS\\system32;C\:\\WINDOWS;C\:\\WINDOWS\\System32\\Wbem;C\:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C\:\\WINDOWS\\System32\\OpenSSH\\;C\:\\Program Files\\dotnet\\;C\:\\TDM-GCC-32\\bin;C\:\\Ruby30-x64\\bin;C\:\\RailsInstaller\\Git\\cmd;C\:\\RailsInstaller\\Ruby2.3.3\\bin;C\:\\Users\\newlo\\AppData\\Local\\Microsoft\\WindowsApps;C\:\\Program Files\\JetBrains\\RubyMine 2020.3.2\\bin;;;C\:\\Users\\newlo\\eclipse\\cpp-2022-03\\eclipse
+environment/project/cdt.managedbuild.config.gnu.mingw.exe.debug.1336434983/PWD/delimiter=;
+environment/project/cdt.managedbuild.config.gnu.mingw.exe.debug.1336434983/PWD/operation=replace
+environment/project/cdt.managedbuild.config.gnu.mingw.exe.debug.1336434983/PWD/value=C\:\\Users\\newlo\\eclipse-workspace\\Atividade1IDJ\\Debug
+environment/project/cdt.managedbuild.config.gnu.mingw.exe.debug.1336434983/append=true
+environment/project/cdt.managedbuild.config.gnu.mingw.exe.debug.1336434983/appendContributed=true
