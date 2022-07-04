@@ -4,6 +4,7 @@
  *  Created on: 21 de jun. de 2022
  *      Author: newlo
  */
+
 #include <iostream>
 using namespace std;
 #include "Music.h"
@@ -13,7 +14,7 @@ using namespace std;
 #include "GameObject.h"
 #include "Face.h"
 #include "Vec2.h"
-# define PI  3.14159265358979323846
+#include "SDL_events.h"
 
 
 

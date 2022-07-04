@@ -15,7 +15,7 @@ Game::Game(string title , int width, int height ) {
 	this->height=height;
 	this->title=title;
 	//inicializa o sdl
-	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_TIMER) != 0) {
+	if (SDL_Init(SDL_INIT_EVERYTHING ) != 0) {
 	    SDL_Log("Unable to initialize SDL: %s", SDL_GetError());
 	}
 	//realiza outras inicializações apenas se o sdl funcionar
@@ -48,7 +48,7 @@ Game::Game(string title , int width, int height ) {
 		   Mix_AllocateChannels(32);
 	   }
 	   //inicializa janela
-	   this->window = SDL_CreateWindow(title.c_str(),SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED,width,height,0);
+	   this->window = SDL_CreateWindow(title.c_str(),SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED,width,height,SDL_WINDOW_INPUT_GRABBED);
 	   if(this->window ==nullptr ){
 		   printf("Falha ao inicializar janela!\n");
 	   }
