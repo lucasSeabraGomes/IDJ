@@ -8,7 +8,7 @@
 #include "Game.h"
 
 
-Game* Game::instance=nullptr;
+Game* Game::instance;
 
 Game::Game(string title , int width, int height ) {
 	this->width=width;
@@ -67,7 +67,7 @@ Game::Game(string title , int width, int height ) {
 	//inicializa state
 	this->state=new State();
 	this->state->LoadAssets(this->GetRenderer(),width,height);
-	this->Run(0);
+	this->Run();
 }
 
 Game::~Game() {
@@ -109,15 +109,16 @@ SDL_Renderer* Game::GetRenderer (){
 State& Game::GetState (){
 	return *this->state;
 }
-void Game::Run(int i){
+void Game::Run(){
 	this->state->Update(0,this->GetRenderer());
 	this->state->Render(this->GetRenderer());
     SDL_RenderPresent(this->GetRenderer());
-	if(i>100 or this->state->QuitRequested()){
+	if( this->state->QuitRequested()){
 		return;
 	}else
 	{
-		this->Run(i+1);
+		SDL_Delay(33);
+		this->Run();
 	}
-	SDL_Delay(33);
+
 }

@@ -21,6 +21,7 @@ Face::~Face() {
 bool Face::Damage(int damage){
 	this->hitpoints=this->hitpoints-damage;
 	if(this->hitpoints<=0){
+		this->associated->RequestDelete();
 		return true;
 	}
 	else {
@@ -29,9 +30,9 @@ bool Face::Damage(int damage){
 }
 bool Face::Is(string tipo){
 	if(tipo.compare("Face")){
-		return true;
-	}else{
 		return false;
+	}else{
+		return true;
 	}
 }
 void Face::Upadate(float dt){

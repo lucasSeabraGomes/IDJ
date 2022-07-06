@@ -19,6 +19,8 @@ public:
 	void Open ( string file);
 	bool IsOpen ();
 	bool Is(string type) ;
+	bool IsPlaying();
+	int MaxPlays;
 private:
 	Mix_Chunk* chunk;
 	int chanel;

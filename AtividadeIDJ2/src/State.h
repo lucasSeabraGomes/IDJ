@@ -15,6 +15,7 @@ using namespace std;
 #include "Face.h"
 #include "Vec2.h"
 #include "SDL_events.h"
+#include "Sound.h"
 
 
 

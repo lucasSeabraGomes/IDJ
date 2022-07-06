@@ -81,10 +81,10 @@ bool Sprite::IsOpen(){
 }
 bool Sprite::Is(string tipo){
 	if(tipo.compare("Sprite")){
-		return true;
+		return false;
 	}
 	else {
-		return false;
+		return true;
 	}
 }
 void Sprite::Update(float dt){

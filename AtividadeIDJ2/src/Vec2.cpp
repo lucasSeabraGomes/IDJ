@@ -24,7 +24,7 @@ Vec2::~Vec2() {
 
 Vec2 Vec2::GetRotated(float ang){
 	this->x=this->x *cos(ang)- y*sin(ang);
-	this->x=this->y *cos(ang)- x*sin(ang);
+	this->y=this->y *cos(ang)- x*sin(ang);
 	return *this;
 }
 Vec2 Vec2::Soma(float x, float y){

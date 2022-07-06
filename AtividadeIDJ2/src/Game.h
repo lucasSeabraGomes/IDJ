@@ -4,7 +4,7 @@
  *  Created on: 16 de jun. de 2022
  *      Author: newlo
  */
-
+#include <stdio.h>
 #include <iostream>
 #include <stdlib.h>
 using namespace std;
@@ -31,7 +31,7 @@ private:
 	State* state;
 public:
 	virtual ~Game();
-	void Run(int i);
+	void Run();
 	SDL_Renderer* GetRenderer ();
 	static Game& GetInstance ();
 	State& GetState ();

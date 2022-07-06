@@ -40,17 +40,17 @@ void State::LoadAssets(SDL_Renderer* render,int w, int h){
 	bg->Open("ocean.jpg",render);
 	bg->SetClip(0, 0, w, h);
 	this->objectArray[0]->AddComponent(bg);
-
-
-	this->AddObject(200, 200,render);
-
-	this->AddObject(500, 200,render);
 }
 void State::Update(float dt,SDL_Renderer* render){
 	this->Input( render);
 	for(int i=0;i<int(this->objectArray.size());i++){
 			if(this->objectArray[i]->IsDead()){
-				this->objectArray.erase(this->objectArray.begin()+i);
+				Sound* sound=(Sound*)this->objectArray[i]->GetComponent("Sound");
+				sound->Play(1);
+				if(!sound->IsPlaying()){
+					this->objectArray[i]->~GameObject();
+					this->objectArray.erase(this->objectArray.begin()+i);
+				}
 			}
 		}
 }
@@ -72,8 +72,10 @@ void State::AddObject(int mouseX,int mouseY,SDL_Renderer* render){
 		this->objectArray[this->objectArray.size()-1]->box.w= sprite->getW();
 		sprite->SetClip(0, 0, this->objectArray[this->objectArray.size()-1]->box.w, this->objectArray[this->objectArray.size()-1]->box.h);
 		Component* face = new Face(ob);
+		Component* sound= new Sound("boom.wav",ob);
 		this->objectArray[this->objectArray.size()-1]->AddComponent(sprite);
 		this->objectArray[this->objectArray.size()-1]->AddComponent(face);
+		this->objectArray[this->objectArray.size()-1]->AddComponent(sound);
 		cout<<"criando pinguin\n";
 }
 
@@ -88,7 +90,6 @@ void State::Input(SDL_Renderer* render) {
 
 	// SDL_PollEvent retorna 1 se encontrar eventos, zero caso contrário
 	while (SDL_PollEvent(&event)) {
-		cout<<event.type<<"\n";
 		// Se o evento for quit, setar a flag para terminação
 		if(event.type == SDL_QUIT) {
 
@@ -97,7 +98,7 @@ void State::Input(SDL_Renderer* render) {
 
 		// Se o evento for clique...
 		if(event.type == SDL_MOUSEBUTTONDOWN) {
-			cout<<"mouse";
+			cout<<"mouse "<<mouseX<<" "<<mouseY<<"\n";
 			// Percorrer de trás pra frente pra sempre clicar no objeto mais de cima
 			for(int i = objectArray.size() - 1; i >= 0; --i) {
 				// Obtem o ponteiro e casta pra Face.
@@ -109,6 +110,7 @@ void State::Input(SDL_Renderer* render) {
 				// chamar funções de GameObjects, use objectArray[i]->função() direto.
 
 				if(go->box.Contains( (float)mouseX, (float)mouseY ) ) {
+
 					Face* face = (Face*)go->GetComponent( "Face" );
 					if ( nullptr != face ) {
 						// Aplica dano
