@@ -43,27 +43,14 @@ void  TileMap::Load( std::string file){
 	    		aux2++;
 	    	}
 	    }
-	    char* cMap;
-	    cMap=(char*)malloc(valores[0]*(aux3+1)*sizeof(char));
-	    char numeros[3];
+	    int numero;
 	    while(!feof(arquivo)){
-	    	fgets(cMap, valores[0]*(aux3+1)*sizeof(char), arquivo);
-	    	aux2=0;
-	    	for(unsigned int i=0;cMap[i]!='\n' and i<valores[0]*(aux3+1)*sizeof(char);i++){
-	    	    	if(cMap[i]==','){
-	    	    		this->tileMatrix.push_back(atoi(numeros));
-	    	    		aux2=0;
-	    	    	}
-	    	    	else{
-	    	    		numeros[aux2]=cMap[i];
-	    	    		aux2++;
-	    	    	}
-	    	    }
+	    	fscanf(arquivo,"%d,",&numero);
+	    	this->tileMatrix.push_back(numero);
 	    }
 	    this->mapWidth=valores[0];
 	    this->mapHeight=valores[1];
 		this->mapDepth=valores[2];
-	    free(cMap);
 	    fclose(arquivo);
 }
 void TileMap::SetTileSet( TileSet* tileSet){
