@@ -38,7 +38,6 @@ public:
 	void Update(float dt,SDL_Renderer* render) ;
 	void Render(SDL_Renderer* render);
 	void AddObject(int mouseX,int mouseY,SDL_Renderer* render);
-	InputManager input;
 	Camera* camera;
 
 };

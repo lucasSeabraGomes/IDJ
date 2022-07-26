@@ -9,7 +9,6 @@
 
 
 Game* Game::instance;
-
 Game::Game(string title , int width, int height ) {
 	this->width=width;
 	this->height=height;
@@ -66,14 +65,17 @@ Game::Game(string title , int width, int height ) {
 		   }
 	   }
 	}
+	this->input= &InputManager::GetInstance();
 	//inicializa state
 	this->state=new State();
 	this->state->LoadAssets(this->GetRenderer(),width,height);
-	this->Run();
 }
 
 Game::~Game() {
-
+		if(this->input!=nullptr){
+			this->input->~InputManager();
+			this->input=nullptr;
+		}
 	   if(this->state!=nullptr){
 		   cout<<"removendo state\n";
 		   this->state->~State();

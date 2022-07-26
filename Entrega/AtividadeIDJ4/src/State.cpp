@@ -11,7 +11,6 @@ State::State() {
 	this->quitRequested=false;
 	this->music =  Music();
 	this->recursos=new Resources();
-	this->input= InputManager::GetInstance();
 	this->camera=new Camera();
 }
 
@@ -58,18 +57,18 @@ void State::LoadAssets(SDL_Renderer* render,int w, int h){
 
 
 void State::Update(float dt,SDL_Renderer* render){
-	this->input.Update();
+	InputManager::GetInstance().Update();
 	//fecha o jogo se escape for pressionado ou alt f4 ou o x da janela
-	if(this->input.QuitRequested() or this->input.KeyPress(SDLK_ESCAPE) or this->input.IsKeyDown(SDLK_ESCAPE)){
+	if(InputManager::GetInstance().QuitRequested() or InputManager::GetInstance().KeyPress(SDLK_ESCAPE) or InputManager::GetInstance().IsKeyDown(SDLK_ESCAPE)){
 		this->quitRequested=true;
 	}
 	//adiciona pinguins
-	if(this->input.KeyPress(SPACE_KEY)){
-		Vec2 objPos = Vec2( 200, 0 ).GetRotated( -3.14159265358979323846 + 3.14159265358979323846*(rand() % 1001)/500.0 ).Soma( this->input.GetMouseX()-this->camera->pos.x, this->input.GetMouseY()-this->camera->pos.y );
+	if(InputManager::GetInstance().KeyPress(SPACE_KEY)){
+		Vec2 objPos = Vec2( 200, 0 ).GetRotated( -3.14159265358979323846 + 3.14159265358979323846*(rand() % 1001)/500.0 ).Soma( InputManager::GetInstance().GetMouseX()-this->camera->pos.x, InputManager::GetInstance().GetMouseY()-this->camera->pos.y );
 		AddObject((int)objPos.x, (int)objPos.y ,render);
 	}
 	//apaga pinguins
-	if(this->input.MousePress(LEFT_MOUSE_BUTTON ) or this->input.IsMouseDown(LEFT_MOUSE_BUTTON )){
+	if(InputManager::GetInstance().MousePress(LEFT_MOUSE_BUTTON ) or InputManager::GetInstance().IsMouseDown(LEFT_MOUSE_BUTTON )){
 		for(int i = objectArray.size() - 1; i >= 0; --i) {
 			// Obtem o ponteiro e casta pra Face.
 			GameObject* go = (GameObject*) objectArray[i];
@@ -78,7 +77,7 @@ void State::Update(float dt,SDL_Renderer* render){
 			// ao usar get(), violamos esse princípio e estamos menos seguros.
 			// Esse código, assim como a classe Face, é provisório. Futuramente, para
 			// chamar funções de GameObjects, use objectArray[i]->função() direto.
-			if(go->box.Contains( (float)this->input.GetMouseX()-this->camera->pos.x, (float)this->input.GetMouseY()-this->camera->pos.y ) ) {
+			if(go->box.Contains( (float)InputManager::GetInstance().GetMouseX()-this->camera->pos.x, (float)InputManager::GetInstance().GetMouseY()-this->camera->pos.y ) ) {
 				Face* face = (Face*)go->GetComponent( "Face" );
 				if ( nullptr != face ) {
 					// Aplica dano
@@ -96,7 +95,7 @@ void State::Update(float dt,SDL_Renderer* render){
 				this->objectArray.erase(this->objectArray.begin()+i);
 			}
 		}
-	this->camera->Update(dt, 1024, 600, this->input);
+	this->camera->Update(dt, 1024, 600);
 }
 
 

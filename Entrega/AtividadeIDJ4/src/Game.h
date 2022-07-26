@@ -28,6 +28,7 @@ private:
 	int frameStart;
 	float dt;
 public:
+	InputManager* input;
 	void CalculateDeltaTime();
 	float GetDeltaTime();
 	virtual ~Game();

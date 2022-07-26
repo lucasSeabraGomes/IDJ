@@ -14,7 +14,7 @@ class Camera {
 public:
 	Camera();
 	virtual ~Camera();
-	void Update (float dt,int width, int height,InputManager manager);
+	void Update (float dt,int width, int height);
 	void Follow (GameObject* newFocus);
 	void Unfollow ();
 	Vec2 pos;

@@ -7,6 +7,7 @@ using namespace std;
 int main(int argc, char* argv[])
 {
    Game teste= Game::GetInstance();
+	teste.Run();
    teste.~Game();
    system("pause");
     return 0;
