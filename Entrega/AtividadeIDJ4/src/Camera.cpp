@@ -24,25 +24,21 @@ void Camera::Unfollow (){
 	this->focus=nullptr;
 }
 void Camera::Update (float dt,int width, int height){
-	int oldx,oldy;
 	if(this->focus!=nullptr) {
-		oldx=this->focus->box.x;
-		oldy=this->focus->box.y;
-		this->focus->box.x=(width/2)-(this->focus->box.w/2);
-		this->focus->box.y=(height/2)-(this->focus->box.h/2);
-		pos.x=pos.x+this->focus->box.x-oldx;
-		pos.y=pos.y+this->focus->box.y-oldy;
-	}
-	if(InputManager::GetInstance().IsKeyDown(LEFT_ARROW_KEY) or InputManager::GetInstance().KeyPress(LEFT_ARROW_KEY)){
-		this->pos.x=this->pos.x+dt;
-	}
-	if(InputManager::GetInstance().IsKeyDown(RIGHT_ARROW_KEY) or InputManager::GetInstance().KeyPress(RIGHT_ARROW_KEY)){
-		this->pos.x=this->pos.x-dt;
-	}
-	if(InputManager::GetInstance().IsKeyDown(UP_ARROW_KEY) or InputManager::GetInstance().KeyPress(UP_ARROW_KEY)){
-		this->pos.y=this->pos.y+dt;
-	}
-	if(InputManager::GetInstance().IsKeyDown(DOWN_ARROW_KEY) or InputManager::GetInstance().KeyPress(DOWN_ARROW_KEY)){
-		this->pos.y=this->pos.y-dt;
+			this->pos.x=(width/2)-this->focus->box.x;
+			this->pos.y=(height/2)-this->focus->box.y;
+	}else{
+		if(InputManager::GetInstance().IsKeyDown(LEFT_ARROW_KEY) or InputManager::GetInstance().KeyPress(LEFT_ARROW_KEY)){
+			this->pos.x=this->pos.x+dt;
+		}
+		if(InputManager::GetInstance().IsKeyDown(RIGHT_ARROW_KEY) or InputManager::GetInstance().KeyPress(RIGHT_ARROW_KEY)){
+			this->pos.x=this->pos.x-dt;
+		}
+		if(InputManager::GetInstance().IsKeyDown(UP_ARROW_KEY) or InputManager::GetInstance().KeyPress(UP_ARROW_KEY)){
+			this->pos.y=this->pos.y+dt;
+		}
+		if(InputManager::GetInstance().IsKeyDown(DOWN_ARROW_KEY) or InputManager::GetInstance().KeyPress(DOWN_ARROW_KEY)){
+			this->pos.y=this->pos.y-dt;
+		}
 	}
 }
